@@ -1,20 +1,35 @@
-numero1 = input("Digite um numero") 
-numero2 = input("Digite um segundo numero")
+operacao = input("Digite sua operação (adicao, sub, mult, divisao): ")
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
 
-print("Digite uma operação 1_+  2_-  3_*   4_/  ")
+def adicao(x, y):
+    return x + y
 
+def sub(x, y):
+    return x - y
 
+def mult(x, y):
+    return x * y
 
-contador = False
+def divisao(x, y):
+    if y == 0:
+        print("ERRO!! Divisão por zero não é permitida.")
+        return None
+    return x / y
 
-operacao = input("Digite a operação (1) (2) (3) (4)")
+resultado = None
 
+if operacao == "adicao":
+    resultado = adicao(num1, num2)
+elif operacao == "sub":
+    resultado = sub(num1, num2)
+elif operacao == "mult":
+    resultado = mult(num1, num2)
+elif operacao == "divisao":
+    resultado = divisao(num1, num2)
+else:
+    print("Operação inválida")
 
-while contador == False:
-    if numero1 >= 1000:
-      print("Digite um numero valido: ")
-    elif numero2 >= 1000:
-       print("Digite um numero valido!!")
-    else:
-       continue
+if resultado is not None:
+    print("O resultado da operação", operacao, "é", resultado)
 
